@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: react
-        image: tarunk0/react-app:v1
+        image: tarunk0/react-webapp
         ports:
         - containerPort: 3000
