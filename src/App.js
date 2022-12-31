@@ -7,7 +7,7 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-  This is my react JS  application. 
+  This is my react JS  application. This is a complete CICD APPLICATION  deployed on to the GKE cluster.
         </p>
         <a
           className="App-link"
