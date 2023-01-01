@@ -31,8 +31,7 @@ CMD [ "yarn", "start"]
 
   - Installed Jenkins on this kubernetes Cluster using Helm Charts and also configured the Kuberntes pod as dynamic jenkins agent. So that our CICD pipeline can run on the jenkins dynamic pods and after the pipeline is completed the pod will be terminated.
   
-
-  ```
+```
         pipeline {
         agent {
             kubernetes {
@@ -128,7 +127,37 @@ CMD [ "yarn", "start"]
 
 ![](2023-01-01-14-47-22.png)
 
+- I have attached the screenshots after the pipeline has run successfully.
+- Also we have the LoadBalancer provisioned for acessing the application.
+- Please the screenshots.
 
+![image](https://user-images.githubusercontent.com/92631457/210166433-791d7dc6-2688-40e1-b486-56a0c416eeaa.png)
+
+![image](https://user-images.githubusercontent.com/92631457/210166453-46cd8778-a852-4164-aaa8-cf4db3ac4323.png)
+
+- In the above screenshot you can see that 4 containers are running in a pod for running the various stages inside k8s only.
+
+![image](https://user-images.githubusercontent.com/92631457/210166491-4b213e1d-ce01-46f7-bd4f-81c82031ba71.png)
+
+- We can see after the pipeline has run successfully the image has been pushed to Docker hub.
+
+![image](https://user-images.githubusercontent.com/92631457/210166527-642f08b8-ea6d-48a9-8d4e-c73445910ea7.png)
+
+- You can see from the above screenshot that, I also have set up the webhook trigger inside github to send the data back to jenkins for automatically triggering the pipeline after the commit has happened or lets say the PR has been opened.
+
+![image](https://user-images.githubusercontent.com/92631457/210166606-0ba099b8-41f3-4e8e-a125-9956fc09b091.png)
+
+- Above screenshot shows that the pipeline has run successfully and the required no of replicas has also been deployed onto the cluster.
+
+![image](https://user-images.githubusercontent.com/92631457/210166643-1d0ae727-e102-4309-a98e-bb13f9c881f1.png)
+
+- We can see that the pods are running and also the load balancer has been provisioned.
+- The Containers in which our pipeline was running are also terminating after the pipeline has completed.
+
+![image](https://user-images.githubusercontent.com/92631457/210166725-2729f093-12d1-49a1-b487-6c2d11798769.png)
+
+- We can access the application using the Loadbalancer's IP.
+- Next time as soon as the commit has been pushed to github the pipeline will run automatically as we have setup github webhook trigger and new docker image will be formed and then pushed to docker hub and the new changes will be applied to the application, using the same loadbalancer IP we can access the application.
 
 
 
