@@ -159,5 +159,6 @@ CMD [ "yarn", "start"]
 - We can access the application using the Loadbalancer's IP.
 - Next time as soon as the commit has been pushed to github the pipeline will run automatically as we have setup github webhook trigger and new docker image will be formed and then pushed to docker hub and the new changes will be applied to the application, using the same loadbalancer IP we can access the application.
 
+- I believe I have finished both the tasks of Firstly dockerizing the application and then making the CICD pipeline using the dockerized application.
 
 
